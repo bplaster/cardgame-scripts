@@ -38,7 +38,7 @@ def generate(card):
 	soph = str(card[7])
 	dext = str(card[8])
 	cost = str(card[9])
-	text = str(card[10])
+	#text = str(card[10])
 
 	dir = './cards/'
 	ext = '.tex'
@@ -50,11 +50,11 @@ def generate(card):
 		out.write('	' + styp + '\\\\\n')
 		out.write('	Cost: ' + cost + '\\\\\n')
 		out.write(LATEX_IMAGE_HEADER + dir + 'square.png' + LATEX_IMAGE_FOOTER)
-		out.write('	Adorability: ' + ador + '\\\\\n')
-		out.write('	Sophistication: ' + soph + '\\\\\n')
-		out.write('	Dexterity: ' + dext + '\\\\\n')
-		out.write('	Special: ' + efct + '\\\\\n')
-		out.write('	\\vfill \n' + '	Text: ' + text)
+		if (ador): out.write('	Adorability: ' + ador + '\\\\\n')
+		if (soph): out.write('	Sophistication: ' + soph + '\\\\\n')
+		if (dext): out.write('	Dexterity: ' + dext + '\\\\\n')
+		if (efct): out.write('	Effect: ' + efct + '\\\\\n')
+		#out.write('	\\vfill \n' + '	Text: ' + text)
 		out.write(LATEX_FOOTER)
 	subprocess.call(['pdflatex','--output-directory=' + dir,path])
 	return path, qnty

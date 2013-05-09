@@ -42,7 +42,7 @@ def generate(card):
 	dext = str(card[5])
 	spec = str(card[6])
 	pkmy = str(card[7])
-	text = str(card[8])
+	#text = str(card[8])
 
 	dir = './cards/'
 	ext = '.tex'
@@ -55,8 +55,8 @@ def generate(card):
 		out.write('	Sophistication: ' + soph + '\\\\\n')
 		out.write('	Dexterity: ' + dext + '\\\\\n')
 		out.write('	Pocket Money: ' + pkmy + '\\\\\\\\[0.02in]\n')
-		out.write('	Special: ' + spec + '\\\\\n')
-		out.write('	Text: ' + text)
+		if (spec): out.write('	Special: ' + spec + '\\\\\n')
+		#out.write('	Text: ' + text)
 		out.write(LATEX_FOOTER)
 	subprocess.call(['pdflatex','--output-directory=' + dir,path])
 	return path, qnty

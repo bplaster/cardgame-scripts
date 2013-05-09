@@ -33,7 +33,7 @@ def generate(card):
 	borr = str(card[6])
 	stea = str(card[7])
 	spec = str(card[8])
-	text = str(card[9])
+	#text = str(card[9])
 	
 	dir = './cards/'
 	ext = '.tex'
@@ -48,8 +48,8 @@ def generate(card):
 		out.write('	Borrow: ' + borr + '\\\\\n')
 		out.write('	Steal: ' + stea + '\\\\[0.05in]\n')
 		out.write('	\\raggedright \n')
-		out.write('	Special: ' + spec + '\\\\\n')
-		out.write('	\\vfill \n' + '	Text: ' + text)
+		if (spec): out.write('	Special: ' + spec + '\\\\\n')
+		#out.write('	\\vfill \n' + '	Text: ' + text)
 		out.write(LATEX_FOOTER)
 	subprocess.call(['pdflatex','--output-directory=' + dir,path])
 	return path, qnty
