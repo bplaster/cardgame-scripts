@@ -20,7 +20,7 @@ from modules import GenChar as gc
 
 
 LATEX_HEADER = """\\documentclass{article}
-\\usepackage[landscape, top=0.5in, bottom=0.5in, left=0.5in, right=0.5in]{geometry}
+\\usepackage[landscape, top=0.5in, bottom=0.5in, left=0.7in, right=0.7in]{geometry}
 \\usepackage[parfill]{parskip}
 \\usepackage{graphicx}
 
@@ -74,7 +74,7 @@ def main():
 			out.write(card)
 			out.write(LATEX_CARD_FOOTER)
 			if (index + 1) % 4 == 0:
-				out.write(' \\\[0.15in]')
+				out.write(' \\\[0.01in]')
 		out.write(LATEX_FOOTER)
 		
 	# Generate output pdf
